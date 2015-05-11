@@ -1,0 +1,24 @@
+{
+  "name": "gulp-teamcity-reporter",
+  "version": "0.0.1",
+  "description": "Gulp reporter to display log messages in a TeamCity format",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aranasoft/gulp-teamcity-reporter.git"
+  },
+  "keywords": [
+    "gulp",
+    "teamcity",
+    "gulpplugin"
+  ],
+  "author": "Arana Software <info@aranasoft.com>",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/aranasoft/gulp-teamcity-reporter/issues"
+  },
+  "homepage": "https://github.com/aranasoft/gulp-teamcity-reporter#readme"
+}
