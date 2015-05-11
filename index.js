@@ -28,6 +28,11 @@ function wireTaskEvents() {
     tsm.progressFinish(e.task);
   });
 
+  gulp.on('task_err', function (e) {
+    if (!(isTeamCityContext())) { return; }
+    tsm.buildProblem({description: 'Task \'' + e.task + '\' failed. ' + e.err});
+  });
+
   gulp.on('task_not_found', function (e) {
     if (!(isTeamCityContext())) { return; }
     tsm.buildProblem({description: 'Task \'' + e.task + '\' is not in your gulpfile'});
