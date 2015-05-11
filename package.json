@@ -1,10 +1,10 @@
 {
   "name": "gulp-teamcity-reporter",
   "version": "0.0.1",
-  "description": "Gulp reporter to display log messages in a TeamCity format",
+  "description": "Gulp reporter to display task messages in a TeamCity format",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/jshint index.js"
   },
   "repository": {
     "type": "git",
@@ -20,5 +20,12 @@
   "bugs": {
     "url": "https://github.com/aranasoft/gulp-teamcity-reporter/issues"
   },
-  "homepage": "https://github.com/aranasoft/gulp-teamcity-reporter#readme"
+  "homepage": "https://github.com/aranasoft/gulp-teamcity-reporter#readme",
+  "dependencies": {
+    "gulp": "^3.8.0",
+    "teamcity-service-messages": "^0.1.6"
+  },
+  "devDependencies": {
+    "jshint": "^2.7.0"
+  }
 }
