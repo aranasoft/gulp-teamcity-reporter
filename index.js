@@ -2,7 +2,6 @@ var gulp = require('gulp');
 var tsm = require('teamcity-service-messages');
 
 function isTeamCityContext() {
-  //return true; // Force TeamCity Context for Testing
   if (process === null || typeof process === 'undefined') {
     return false;
   }
