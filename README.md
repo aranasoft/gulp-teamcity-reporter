@@ -11,7 +11,11 @@ $ npm install --save-dev gulp-teamcity-reporter
 ```javascript
 var teamcity = require('gulp-teamcity-reporter');
 
-teamcity.wireTaskEvents();
+teamcity.wireTaskEvents(options);
+
+options = {
+  sendTaskDuration: true //send buildStatisticValue of task run time, by default false
+}
 ```
 
 ### Error handling
