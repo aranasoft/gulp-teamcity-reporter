@@ -28,7 +28,7 @@ function wireTaskEvents(opts) {
   gulp.on('task_stop', function (e) {
     if (!(isTeamCityContext())) { return; }
     tsm.progressFinish(e.task);
-    opts.sendTaskDuration && tsm.buildStatisticValue(e.duration);
+    opts.sendTaskDuration && tsm.buildStatisticValue({key: 'gulp:' + e.task, value: e.duration.toFixed(6)});
   });
 
   gulp.on('task_err', function (e) {
