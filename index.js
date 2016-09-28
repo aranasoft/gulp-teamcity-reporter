@@ -17,7 +17,9 @@ function logError(err) {
   tsm.buildProblem({description: 'Error in plugin \'' + err.plugin + '\' with error: ' + err.message});
 }
 
-function wireTaskEvents() {
+function wireTaskEvents(opts) {
+  opts = opts || {}
+  
   gulp.on('task_start', function (e) {
     if (!(isTeamCityContext())) { return; }
     tsm.progressStart(e.task);
@@ -26,6 +28,7 @@ function wireTaskEvents() {
   gulp.on('task_stop', function (e) {
     if (!(isTeamCityContext())) { return; }
     tsm.progressFinish(e.task);
+    opts.sendTaskDuration && tsm.buildStatisticValue({key: 'gulp:' + e.task, value: e.duration * 1000});
   });
 
   gulp.on('task_err', function (e) {
