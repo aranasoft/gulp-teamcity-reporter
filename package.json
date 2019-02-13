@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/aranasoft/gulp-teamcity-reporter#readme",
   "dependencies": {
-    "gulp": "^3.8.0",
+    "gulp": "^4.0.0",
     "teamcity-service-messages": "^0.1.6"
   },
   "devDependencies": {
