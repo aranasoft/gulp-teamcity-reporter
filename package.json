@@ -4,7 +4,7 @@
   "description": "Gulp reporter to display task messages in a TeamCity format",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/jshint index.js"
+    "test": "xo"
   },
   "repository": {
     "type": "git",
@@ -26,6 +26,9 @@
     "teamcity-service-messages": "^0.1.6"
   },
   "devDependencies": {
-    "jshint": "^2.10.2"
+    "xo": "^0.24.0"
+  },
+  "xo": {
+		"space": true
   }
 }
