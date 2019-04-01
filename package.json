@@ -26,6 +26,6 @@
     "teamcity-service-messages": "^0.1.6"
   },
   "devDependencies": {
-    "jshint": "^2.7.0"
+    "jshint": "^2.10.2"
   }
 }
