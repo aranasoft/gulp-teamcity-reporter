@@ -19,7 +19,7 @@ function logError(err) {
 
 function wireTaskEvents(opts) {
   opts = opts || {}
-  
+
   gulp.on('task_start', function (e) {
     if (!(isTeamCityContext())) { return; }
     tsm.progressStart(e.task);
