@@ -3,6 +3,9 @@
   "version": "1.1.0",
   "description": "Gulp reporter to display task messages in a TeamCity format",
   "main": "index.js",
+  "engines": {
+    "node": ">=8.0"
+  },
   "scripts": {
     "test": "xo",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
