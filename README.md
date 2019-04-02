@@ -9,29 +9,49 @@ $ npm install --save-dev gulp-teamcity-reporter
 ## Usage
 
 ```javascript
-var teamcity = require('gulp-teamcity-reporter');
+require('gulp-teamcity-reporter').wireTaskEvents(options);
+```
 
-teamcity.wireTaskEvents(options);
+## Options
 
-options = {
-  sendTaskDuration: true //send buildStatisticValue of task run time, by default false
+```javascript
+const options = {
+  sendTaskDuration: true, //send buildStatisticValue of task run time, by default false
+  ignoreContext: true     //force TeamCity output, even if env vars are not detected
 }
 ```
 
-### Error handling
+### sendTaskDuration
 
-`gulp-teamcity-reporter` contains an `error` method for handling
-`PluginError` objects for when a plugin throws an error.
+Type: `boolean`<br>
+Default: `false`
+
+Set it to `true` to send `buildStatisticValue` output of the task run time in milliseconds.
+
+### ignoreContext
+
+Type: `boolean`<br>
+Default: `false`
+
+Set it to `true` to force TeamCity-formated output, even if a TeamCity execution context was not detected.
+
+## API
+
+### `wireTaskEvents([options])`
+
+Wire TeamCity-formatted logging into Gulp's events for task start, stop, and error.
 
 ```javascript
-var coffee = require('gulp-coffee');
-var teamcity = require('gulp-teamcity-reporter');
+teamCityReporter.wireTaskEvents(options);
+```
 
-gulp.task('coffee', function() {
-  gulp.src('./src/*.coffee')
-    .pipe(coffee().on('error', teamcity.error))
-    .pipe(gulp.dest('./public/'))
-});
+### `error([options])`
+Wire TeamCity-formatted logging into any stream's error event.
+
+```javascript
+src('./src/somefiles.js')
+   .pipe(somePlugin().on('error', teamCityReporter.error(options)));
+   .pipe(dest('./output'));
 ```
 
 ## License

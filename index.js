@@ -14,19 +14,23 @@ function isTeamCityContext() {
   return (env.TEAMCITY_VERSION !== null && typeof env.TEAMCITY_VERSION !== 'undefined');
 }
 
-function logError(err) {
-  if (!(isTeamCityContext())) {
-    return;
-  }
+function logError(opts) {
+  const {ignoreContext} = opts || {};
 
-  tsm.buildProblem({description: 'Error in plugin \'' + err.plugin + '\' with error: ' + err.message});
+  return function(err) {
+    if (ignoreContext !== true && !(isTeamCityContext())) {
+      return;
+    }
+
+    tsm.buildProblem({description: `Error in plugin '${err.plugin}' with error: ${err.message}`});
+  }
 }
 
 function wireTaskEvents(opts) {
-  const {sendTaskDuration} = opts || {};
+  const {sendTaskDuration, ignoreContext} = opts || {};
 
   gulp.on('start', e => {
-    if (!(isTeamCityContext())) {
+    if (ignoreContext !== true && !(isTeamCityContext())) {
       return;
     }
 
@@ -34,7 +38,7 @@ function wireTaskEvents(opts) {
   });
 
   gulp.on('stop', e => {
-    if (!(isTeamCityContext())) {
+    if (ignoreContext !== true && !(isTeamCityContext())) {
       return;
     }
 
@@ -46,7 +50,7 @@ function wireTaskEvents(opts) {
   });
 
   gulp.on('error', e => {
-    if (!(isTeamCityContext())) {
+    if (ignoreContext !== true && !(isTeamCityContext())) {
       return;
     }
 
