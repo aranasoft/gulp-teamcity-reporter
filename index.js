@@ -23,41 +23,34 @@ function logError(err) {
 }
 
 function wireTaskEvents(opts) {
-  opts = opts || {};
+  const {sendTaskDuration} = opts || {};
 
-  gulp.on('task_start', e => {
+  gulp.on('start', e => {
     if (!(isTeamCityContext())) {
       return;
     }
 
-    tsm.progressStart(e.task);
+    tsm.progressStart(e.name);
   });
 
-  gulp.on('task_stop', e => {
+  gulp.on('stop', e => {
     if (!(isTeamCityContext())) {
       return;
     }
 
-    tsm.progressFinish(e.task);
-    if (opts.sendTaskDuration) {
-      tsm.buildStatisticValue({key: `gulp: ${e.task}`, value: e.duration * 1000});
+    tsm.progressFinish(e.name);
+    if (sendTaskDuration) {
+      const {duration} = e;
+      tsm.buildStatisticValue({key: `gulp: ${e.name}`, value: (duration[0] * 1e9 + duration[1]) * 0.000001 });
     }
   });
 
-  gulp.on('task_err', e => {
+  gulp.on('error', e => {
     if (!(isTeamCityContext())) {
       return;
     }
 
-    tsm.buildProblem({description: `Task '${e.task}' failed. ${e.err}`});
-  });
-
-  gulp.on('task_not_found', e => {
-    if (!(isTeamCityContext())) {
-      return;
-    }
-
-    tsm.buildProblem({description: `Task '${e.task}' is not in your gulpfile`});
+    tsm.buildProblem({description: `Task '${e.name}' failed. ${e.error}`});
   });
 }
 
