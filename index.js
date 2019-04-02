@@ -17,13 +17,13 @@ function isTeamCityContext() {
 function logError(opts) {
   const {ignoreContext} = opts || {};
 
-  return function(err) {
+  return function (err) {
     if (ignoreContext !== true && !(isTeamCityContext())) {
       return;
     }
 
     tsm.buildProblem({description: `Error in plugin '${err.plugin}' with error: ${err.message}`});
-  }
+  };
 }
 
 function wireTaskEvents(opts) {
@@ -45,7 +45,7 @@ function wireTaskEvents(opts) {
     tsm.progressFinish(e.name);
     if (sendTaskDuration) {
       const {duration} = e;
-      tsm.buildStatisticValue({key: `gulp: ${e.name}`, value: (duration[0] * 1e9 + duration[1]) * 0.000001 });
+      tsm.buildStatisticValue({key: `gulp: ${e.name}`, value: (((duration[0] * 1e9) + duration[1])) * 0.000001});
     }
   });
 
