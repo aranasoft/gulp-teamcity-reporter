@@ -1,5 +1,7 @@
 # gulp-teamcity-reporter
 
+[![Build Status][travis-image]][travis-url] [![NPM version][npm-image]][npm-url] [![Dependency Status][depstat-image]][depstat-url] [![devDependency Status][devdepstat-image]][devdepstat-url]
+
 ## Install
 
 ```sh
@@ -57,3 +59,15 @@ src('./src/somefiles.js')
 ## License
 
 [BSD-3-Clause](https://raw.githubusercontent.com/aranasoft/gulp-teamcity-reporter/master/LICENSE) © [Arana Software](http://www.aranasoft.com)
+
+[npm-url]: https://npmjs.org/package/gulp-teamcity-reporter
+[npm-image]: http://img.shields.io/npm/v/gulp-teamcity-reporter.svg
+
+[travis-url]: http://travis-ci.org/aranasoft/gulp-teamcity-reporter
+[travis-image]: https://travis-ci.org/aranasoft/gulp-teamcity-reporter.svg?branch=master
+
+[depstat-url]: https://david-dm.org/aranasoft/gulp-teamcity-reporter
+[depstat-image]: https://david-dm.org/aranasoft/gulp-teamcity-reporter.svg
+
+[devdepstat-url]: https://david-dm.org/aranasoft/gulp-teamcity-reporter#info=devDependencies
+[devdepstat-image]: https://david-dm.org/aranasoft/gulp-teamcity-reporter/dev-status.svg
