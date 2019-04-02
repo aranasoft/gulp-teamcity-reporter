@@ -1,3 +1,7 @@
+## [1.1.1](https://github.com/aranasoft/gulp-teamcity-reporter/compare/v1.1.0...v1.1.1) (2019-04-02)
+
+
+
 # [1.1.0](https://github.com/aranasoft/gulp-teamcity-reporter/compare/v1.0.0...v1.1.0) (2019-04-02)
 
 
