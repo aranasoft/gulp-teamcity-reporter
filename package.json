@@ -30,8 +30,8 @@
     "teamcity-service-messages": "^0.1.6"
   },
   "devDependencies": {
-    "conventional-changelog": "^3.0.6",
-    "xo": "^0.24.0"
+    "conventional-changelog": "^3.1.15",
+    "xo": "*"
   },
   "xo": {
     "space": true
